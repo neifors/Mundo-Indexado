@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#ARTICULOS LISTA
 class Article(models.Model):
     description = models.TextField()
     new_price = models.FloatField()
@@ -9,6 +9,7 @@ class Article(models.Model):
     img = models.ImageField()
     href = models.URLField()
 
+#WEB 
 class Web(models.Model):
     name = models.CharField(max_length=100)
     href = models.URLField(max_length=100)

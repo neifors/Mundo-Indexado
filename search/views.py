@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from search.models import Web, Persona, Usuario
+#from django.shortcuts import render_to_response (BOOSTRAP)
 
+#def index(request):
+#   return render_to_response('index.html')
+#INDEX PRINCIPAL, PLANTILLA CON BOOSTRAP
 
 def crear_web(request):
     pass
