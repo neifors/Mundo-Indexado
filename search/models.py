@@ -9,6 +9,22 @@ class Article(models.Model):
     img = models.ImageField()
     href = models.URLField()
 
+    def __str__(self):
+        return self.description
+
+    def to_Str(self):
+        return Article.__str__(self)
+
+    def create(description,new_price,old_price,discount,img,href):
+        return Article.objects.create(description=description,new_price=new_price,old_price=old_price,discount=discount,href=href)
+
+    def read():
+        aux = Article.objects.all()
+        result_to_Str = ''
+        for article in aux:
+            result_to_Str += article.to_Str() + '<br>'
+        return result_to_Str
+        
 class Web(models.Model):
     name = models.CharField(max_length=100)
     href = models.URLField(max_length=100)
@@ -20,7 +36,7 @@ class Web(models.Model):
     def to_Str(self):
         return Web.__str__(self)
 
-    def create(name:str, href, articles):
+    def create(name, href, articles):
         return Web.objects.create(name=name, href=href, articles=articles)
 
     def read():
