@@ -6,7 +6,7 @@ class Article(models.Model):
     new_price = models.FloatField()
     old_price = models.FloatField()
     discount = models.FloatField()
-    img = models.ImageField()
+    img = models.URLField()
     href = models.URLField()
 
     def __str__(self):

@@ -9,6 +9,14 @@ from requests import get
 #! geek_object = GeeksModel.objects.create(geeks_field ="https://www.geeksforgeeks.org / charfield-django-models/") 
 #! geek_object.save() 
 
+def article_exist(description):
+    try:
+        obj = Article.objects.get(description = description)
+    except Exception:
+        return False
+    else:
+        return True
+
 
 def pccomponentes(request):
     to_search = 'auriculares'
@@ -35,6 +43,7 @@ def pccomponentes(request):
             href = pc_componentes+(product.find('a')['href'])
 
             if old_price != None:
+                article_exist(description)
                 old_price = old_price.text.replace('€','').replace(',','.')
                 discount = discount.text.replace('%','')
                 Article.create(description,price,old_price,discount,img,href)
