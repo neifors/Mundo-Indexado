@@ -8,6 +8,7 @@ class Article(models.Model):
     discount = models.FloatField()
     img = models.URLField()
     href = models.URLField()
+    updated_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.description

@@ -2,5 +2,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('pccomponentes', views.pccomponentes, name='pccomponentes')
+    path('super_search', views.super_search, name='super_search')
 ]
