@@ -1,6 +1,15 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from . import scraping
+from .scraping import *
 
-def search():
-    return HttpResponse( scraping.super_search())
+def index(request):
+    return render(request, "search/index.html")
+
+def search(request):
+    if request.method == "POST":
+        to_search = request.POST.get("search")
+        print("##########################################")
+        print(to_search)
+        list_result = super_search_to_json(to_search)
+        context = { "resultados": list_result[1:]}
+        return render(request, "search/results.html", context)

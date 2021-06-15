@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <title>IndexedWorld</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="{% static 'search/media/index.js' %}" defer></script>
+    <title>caca</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -47,5 +48,40 @@
           </div>
         </div>
       </nav>
+
+    <table style="width:100%" class="sortable" id = "example">
+        <thead>
+            <tr>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Old Price</th>
+              <th>Percentage</th>
+              <th>Link</th>
+           </tr>
+        </thead>
+        <tbody>
+        {% for product in resultados %}
+            <tr>
+                <td>{{ product.description }}</th>
+                <td>{{ product.price }}</th>
+                <td>{{ product.old_price }}</th>
+                <td>{{ product.discount }}</lth>
+                <td><a href="{{ product.product_href }}">Enlace</a></th>
+                <td><img src="{{ product.img }}"></img> </th>
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+
+    <table class="sortable">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Old Price</th>
+            <th>Percentage</th>
+         </tr>
+       
+
 </body>
 </html>
