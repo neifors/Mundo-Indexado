@@ -57,12 +57,11 @@ def mediamarkt (to_search):
                 old_price = float(prices[0].text)
                 current_price = float(prices[1].text)
                 description = product.find("p", class_="Typostyled__StyledInfoTypo-sc-1jga2g7-0 fuXjPV").text
-                href = product.find("a", class_="Linkstyled__StyledLinkRouter-sc-1drhx1h-2 iDDAGF ProductListItemstyled__StyledLink-sc-16qx04k-0 dYJAjV")["href"]
-                try:
-                    img = product.find("div", class_="LazyLoadImagestyled__StyledLazyImageWrapper-jly9io-0 lcUjPD")
-                    print(img)
-                except TypeError:
-                    continue
+                href = mediamarkt+product.find("a", class_="Linkstyled__StyledLinkRouter-sc-1drhx1h-2 iDDAGF ProductListItemstyled__StyledLink-sc-16qx04k-0 dYJAjV")["href"]
+                discount = (old_price-current_price)*100/old_price
+                data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href})
+            
+    return data
         
 def backmarket(to_search):
     
@@ -91,7 +90,7 @@ def backmarket(to_search):
                     href = backmarket+product["href"]
                     img = product.find("img")["src"]
                     discount = (old_price-current_price)*100/old_price
-                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price ,'img_url':img ,'product_href':href})
+                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href})
         page += 1
 
     return data
@@ -102,12 +101,14 @@ def super_search_to_json(to_search):
     
     list_result = [{"date":f"{datetime.datetime.now()}"}]
     # data_pccomp = pccomponentes(to_search)
+    data_mediamarkt = mediamarkt(to_search)
     data_backm = backmarket(to_search)
     list_result.extend(data_backm)
-    # list_result.extend(data_pccomp)
+    list_result.extend(data_mediamarkt)
         
     # with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
     #     json.dump( list_result, file, ensure_ascii = False)
+    
     
 
     return list_result
