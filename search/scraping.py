@@ -106,8 +106,8 @@ def super_search_to_json(to_search):
     list_result.extend(data_backm)
     # list_result.extend(data_pccomp)
         
-    with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
-        json.dump( list_result, file, ensure_ascii = False)
+    # with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
+    #     json.dump( list_result, file, ensure_ascii = False)
     
 
     return list_result
