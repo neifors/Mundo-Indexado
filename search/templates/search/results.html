@@ -124,8 +124,14 @@
           <h2>Productos</h2>
       </div>
       <div >
+        <form action="/search/" method="POST">
+        {% csrf_token %}
+        {% for product in ascending %}
         <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Ascendente</button>
+        {%endfor%}
         <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Descendente</button>
+      </form>
+        
       </div>
       
       
