@@ -25,6 +25,9 @@
     <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
 
     <script src="{% static 'search/media/js/main.js' %}" defer></script>
+    <script>
+
+    </script>
 
 </head>
 
@@ -40,8 +43,8 @@
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav ml-auto">
-                  <a href="../" class="nav-item nav-link active">Home</a>
-                  <a href="../content" class="nav-item nav-link">About</a>
+                  <a href="./index" class="nav-item nav-link active">Home</a>
+                  <a href="./content" class="nav-item nav-link">About</a>
                   
               </div>
           </div>
@@ -83,14 +86,9 @@
           
           <h2>Productos</h2>
       </div>
-      <div >
-        <form action="/search/" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Ascendente</button>
-        <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Descendente</button>
-      </form>
+      
         
-      </div>
+  </div>
       
       
       <div class="row">

@@ -1465,7 +1465,7 @@ a:focus {
 .footer {
     position: relative;
     margin-top: 45px;
-    background: #EF233C;
+    background: white;
 }
 
 .footer .container-fluid {
@@ -1482,14 +1482,14 @@ a:focus {
     margin-bottom: 20px;
     font-size: 30px;
     font-weight: 700;
-    color: #ffffff;
+    color: black;
 }
 
 .footer .footer-info h3 {
     margin-bottom: 25px;
     font-size: 22px;
     font-weight: 600;
-    color: #ffffff;
+    color: black;
 }
 
 .footer .footer-menu {
@@ -1499,7 +1499,7 @@ a:focus {
 }
 
 .footer .footer-menu p {
-    color: #ffffff;
+    color: black;
     font-size: 22px;
     font-weight: 600;
     line-height: 20px;
@@ -1523,7 +1523,7 @@ a:focus {
 .footer .footer-social a i {
     margin-right: 15px;
     font-size: 20px;
-    color: #ffffff;
+    color: black;
     transition: .3s;
 }
 
