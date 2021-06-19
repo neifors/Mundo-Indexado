@@ -153,17 +153,8 @@ def super_search_to_json(to_search):
         data_mediamarkt = executor.submit(mediamarkt, to_search=to_search)
         data_backm = executor.submit(backmarket, to_search=to_search)
         
-<<<<<<< Updated upstream
-    list_result.extend(data_backm.result())
-    list_result.extend(data_mediamarkt.result())
-    list_result.extend(data_dell.result())
-        
-    # with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
-    #     json.dump( list_result, file, ensure_ascii = False)
-=======
     #with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
     #    json.dump( list_result, file, ensure_ascii = False)
->>>>>>> Stashed changes
     
     return list_result
     
