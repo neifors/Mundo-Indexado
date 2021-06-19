@@ -75,7 +75,7 @@
         </form>
     </div>
   </div>
-  
+
 <!-- Team Start -->
 <div class="team" id="team">
   <div class="container">
@@ -100,10 +100,15 @@
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
             <a href="{{ product.product_href }}">
               <div class="team-item" >
+                {% if product.img %}
                   <div class="team-img">
-                      <img src="img/team-1.jpg" alt="Image">
+                      <img src="{{ product.img }}" alt="Image">
                   </div>
-                
+                {% else %}
+                  <div class="team-img">
+                    <img src="{% static 'search/media/img/no_image.jpg' %}" alt="Image">
+                  </div>
+                {% endif %}
                   <div class="team-text">
                       <h2>{{ product.description }}</h2>
                       <h3>{{ product.price }} €</h3>

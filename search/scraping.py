@@ -66,6 +66,7 @@ def mediamarkt (to_search):
                         description = product.find("p", class_="Typostyled__StyledInfoTypo-sc-1jga2g7-0 fuXjPV").text
                         href = mediamarkt+product.find("a", class_="Linkstyled__StyledLinkRouter-sc-1drhx1h-2 iDDAGF ProductListItemstyled__StyledLink-sc-16qx04k-0 dYJAjV")["href"]
                         discount = (old_price-current_price)*100/old_price
+                        # img = product.find("img")["src"]
                         data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href})
                     except AttributeError:
                         print("No se puede extraer .text de un NoneType")
@@ -100,9 +101,9 @@ def backmarket(to_search):
                     current_price = float(product.find("span", class_="_3OcKBk8D _2SrrvPwuOVjCyULC_FKjin").text.replace("€","").replace(",","."))
                     description = product.find("h2", class_="_2RGsPtNo").text.strip()
                     href = backmarket+product["href"]
-                    # img = product.find("img")["src"]
+                    img = product.find("img")["src"]
                     discount = (old_price-current_price)*100/old_price
-                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href})
+                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href, 'img':img})
                     
                     
         page += 1
@@ -133,7 +134,8 @@ def dell(to_search):
                     description = product.find("h3", class_="ps-title").text.strip()
                     href = product.find("h3", class_="ps-title").find("a")["href"][2:]
                     discount = (old_price-current_price)*100/old_price
-                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href})
+                    img = product.find("img")["src"]
+                    data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href, 'img':img})
                 else:
                     continue
         page += 1
