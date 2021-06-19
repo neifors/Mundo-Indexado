@@ -162,3 +162,4 @@ def super_search_to_json(to_search):
     
     return list_result
     
+print(super_search_to_json("consola"))
