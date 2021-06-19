@@ -81,11 +81,13 @@
                     </div>
                 </div>
             </div>
+            <form class="d-flex" action="/search/" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2" id="search" name="search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
         <!-- Hero End -->
-
-        
-
 
         <!-- About Start -->
         <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
@@ -209,73 +211,79 @@
         
         
          <!-- Experience Start -->
-        <div class="experience" id="experience">
+        
+         <!-- Experience Start -->
+         <div class="experience" id="experience">
             <div class="container">
                 <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Resume</p>
-                    <h2>Working Experience</h2>
+                    <h2>Cronologia del Proyecto</h2>
                 </header>
                 <div class="timeline">
                     <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Diciembre</div>
+                            <h2>Planteamiento idea del proyecto</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Tras descartar varias ideas decidimos apostar por web scraping 
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Enero</div>
+                            <h2>Creación de la documentación</h2>
+                            
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Puesta en escrito de los principales puntos del proyecto como objetivos, alcance y limites
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Febrero</div>
+                            <h2>Primeros Scripts y toma de contacto con Django</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Conocimiento de las diferentes librerias de scraping y primeros problemas encontrados por ser bloqueados por las diferentes webs 
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Marzo</div>
+                            <h2>Estructuracion del proyecto en Django</h2>
+                            
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Tras habernos familiarizado con este framework comenzamos a pulir el codigo y a crear el Frontend
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Abril</div>
+                            <h2>Remodelación de scripts</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Pasados unos meses de la creación de los scripts nos encontramos con que algunas webs han cambiado su estructura html 
                             </p>
                         </div>
                     </div>
                     <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
                         <div class="timeline-text">
-                            <div class="timeline-date">2045 - 2050</div>
-                            <h2>Web Developer</h2>
-                            <h4>Soft Agency, San Francisco, CA</h4>
+                            <div class="timeline-date">Mayo</div>
+                            <h2>Optimización del código</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
+                              Unificación de Back y Front permitiendonos mejorar la funcionalidad de nuestro proyecto
                             </p>
                         </div>
                     </div>
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                      <div class="timeline-text">
+                          <div class="timeline-date">Junio</div>
+                          <h2>Finalización</h2>
+                          <p>
+                            Terminamos toda la documentación, agregamos últimos detalles y entrega final 
+                          </p>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
