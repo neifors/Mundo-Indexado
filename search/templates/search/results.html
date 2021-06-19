@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+<<<<<<< Updated upstream
     <title>Resultados</title>
+=======
+    <title>DevFolio - Developer Portfolio Template</title>
+>>>>>>> Stashed changes
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
@@ -12,6 +16,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<<<<<<< Updated upstream
     {% load static %}
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -37,13 +42,56 @@
   <div class="navbar navbar-expand-lg bg-light navbar-light">
       <div class="container-fluid">
           <a href="../" class="navbar-brand">Indexed World</a>
+=======
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    {% load static %}
+    <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
+
+    <script src="{% static 'search/media/js/main.js' %}" defer></script>
+
+</head>
+<body>
+  <div class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container-fluid">
+        <a href="/index" class="navbar-brand">Indexed World</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="./content" class="nav-item nav-link">About</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+  <!-- Nav Bar Start -->
+  <div class="navbar navbar-expand-lg bg-light navbar-light">
+      <div class="container-fluid">
+          <a href="/index" class="navbar-brand">Indexed World</a>
+>>>>>>> Stashed changes
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav ml-auto">
+<<<<<<< Updated upstream
                   <a href="./index" class="nav-item nav-link active">Home</a>
+=======
+                  <a href="#home" class="nav-item nav-link active">Home</a>
+>>>>>>> Stashed changes
                   <a href="./content" class="nav-item nav-link">About</a>
                   
               </div>
@@ -53,6 +101,11 @@
   <!-- Nav Bar End -->
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
   <!-- About Start -->
   <div class="hero" id="home">
   
@@ -66,7 +119,11 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>¡Busca tu ganga!</h1>
+<<<<<<< Updated upstream
                     <h2>¡No dejes escapar las mejores oportunidades!</h2>
+=======
+                    <h2></h2>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -79,6 +136,32 @@
     </div>
   </div>
 
+<<<<<<< Updated upstream
+=======
+    <!--<table style="width:100%" class="sortable" id = "example">
+        <thead>
+            <tr>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Old Price</th>
+              <th>Percentage</th>
+              <th>Link</th>
+           </tr>
+        </thead>
+        <tbody>
+        {% for product in resultados %}
+            <tr>
+                <td>{{ product.description }}</th>
+                <td>{{ product.price }}</th>
+                <td>{{ product.old_price }}</th>
+                <td>{{ product.discount }}</lth>
+                <td><a href="{{ product.product_href }}">Enlace</a></th>
+            </tr>
+        {%endfor%}
+        </tbody>
+    </table> -->
+   
+>>>>>>> Stashed changes
 <!-- Team Start -->
 <div class="team" id="team">
   <div class="container">
@@ -86,6 +169,7 @@
           
           <h2>Productos</h2>
       </div>
+<<<<<<< Updated upstream
       
         
   </div>
@@ -94,10 +178,16 @@
       <div class="row">
         
         {% for product in page_obj %}
+=======
+      <div class="row">
+        
+        {% for product in resultados %}
+>>>>>>> Stashed changes
         
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
             <a href="{{ product.product_href }}">
               <div class="team-item" >
+<<<<<<< Updated upstream
                 {% if product.img %}
                   <div class="team-img">
                       <img src="{{ product.img }}" alt="Image">
@@ -107,6 +197,12 @@
                     <img src="{% static 'search/media/img/no_image.jpg' %}" alt="Image">
                   </div>
                 {% endif %}
+=======
+                  <div class="team-img">
+                      <img src="img/team-1.jpg" alt="Image">
+                  </div>
+                
+>>>>>>> Stashed changes
                   <div class="team-text">
                       <h2>{{ product.description }}</h2>
                       <h3>{{ product.price }} €</h3>
@@ -120,7 +216,13 @@
           </div>
         
           {%endfor%}
+<<<<<<< Updated upstream
        
+=======
+  </div>
+</div>
+<!-- Team End -->
+>>>>>>> Stashed changes
 
         <div class="pagination">
             <span class="step-links">

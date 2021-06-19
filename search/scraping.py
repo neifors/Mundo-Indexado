@@ -164,6 +164,7 @@ def super_search(to_search):
     list_result.extend(data_dell.result())
     list_result.extend(data_backm.result())
     list_result.extend(data_mediamarkt.result())
+<<<<<<< Updated upstream
     
     return list_result
 
@@ -178,3 +179,7 @@ def sort_by_price_descending(list_result):
 
 
 
+=======
+
+    return list_result
+>>>>>>> Stashed changes
