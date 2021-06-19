@@ -1,59 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>DevFolio - Developer Portfolio Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
     {% load static %}
-    <script src="{% static 'search/media/js/index.js' %}" defer></script>
-    <title>Products</title>
-    <style>
-      table.sortable thead {
-      background-color:#eee;
-      color:#666666;
-      font-weight: bold;
-      cursor: pointer;
-      
-      }
-      table {
-      border-spacing: 0;
-      width: 100%;
-      border: 1px solid #ddd;
-      }
-    
-      th {
-        cursor: pointer;
-      }
-      
-      th, td {
-        text-align: left;
-        padding: 16px;
-      }
-    
-      tr:nth-child(even) {
-        background-color: #f2f2f2
-    }
-    
-      </style>
-  <script src="dist/sortable-tables.min.js"></script>
-    
+    <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
+
+    <script src="{% static 'search/media/js/main.js' %}" defer></script>
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./">Indexed World</a>
-            <form class="d-flex" action="/search/" method="POST">
-              {% csrf_token %}
-              <input class="form-control me-2" id="search" name="search" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
+  <div class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container-fluid">
+        <a href="/index" class="navbar-brand">Indexed World</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <table style="width:100%" class="sortable" id = "example">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="./content" class="nav-item nav-link">About</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+  <!-- Nav Bar Start -->
+  <div class="navbar navbar-expand-lg bg-light navbar-light">
+      <div class="container-fluid">
+          <a href="/index" class="navbar-brand">Indexed World</a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+              <div class="navbar-nav ml-auto">
+                  <a href="#home" class="nav-item nav-link active">Home</a>
+                  <a href="./content" class="nav-item nav-link">About</a>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Nav Bar End -->
+
+
+
+
+  <!-- About Start -->
+  <div class="hero" id="home">
+  
+  </div>
+
+  <!-- About End -->
+  
+  <div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-sm-12 col-md-6">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>¡Busca tu ganga!</h1>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+        <form class="d-flex" action="/search/" method="POST">
+          {% csrf_token %}
+          <input class="form-control me-2" id="search" name="search" type="search" placeholder="Search" aria-label="Search" &nsbp;>
+          
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+
+    <!--<table style="width:100%" class="sortable" id = "example">
         <thead>
             <tr>
               <th>Description</th>
@@ -74,8 +114,42 @@
             </tr>
         {%endfor%}
         </tbody>
-    </table>
+    </table> -->
+   
+<!-- Team Start -->
+<div class="team" id="team">
+  <div class="container">
+      <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+          
+          <h2>Productos</h2>
+      </div>
+      <div class="row">
+        
+        {% for product in resultados %}
+        
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
+            <a href="{{ product.product_href }}">
+              <div class="team-item" >
+                  <div class="team-img">
+                      <img src="img/team-1.jpg" alt="Image">
+                  </div>
+                
+                  <div class="team-text">
+                      <h2>{{ product.description }}</h2>
+                      <h3>{{ product.price }} €</h3>
+                      <p>Antes <strike>{{ product.old_price }} €</strike> </p>
+                      <h4>Descuento {{ product.discount }}</h4>
+                      
+                              
+                  </div>
+              </div>
+            </a>
+          </div>
+        
+          {%endfor%}
+  </div>
 </div>
+<!-- Team End -->
 
 </body>
 </html>
