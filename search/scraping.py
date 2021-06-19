@@ -4,6 +4,7 @@ from requests import get
 import datetime, json
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+import pandas as pd 
 
 
 
@@ -161,3 +162,17 @@ def super_search_to_json(to_search):
     list_result.extend(data_mediamarkt.result())
     
     return list_result
+
+
+def sort_by_price_ascending(to_search):
+    list_result = super_search_to_json(to_search)
+    sorted_list = pd.DataFrame(list_result[1:]).sort_values("price")
+    return sorted_list
+    
+def sort_by_price_descending(to_search):
+    list_result = super_search_to_json(to_search)
+    sorted_list = pd.DataFrame(list_result[1:]).sort_values("price", ascending= False)
+    return sorted_list
+
+
+
