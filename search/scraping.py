@@ -145,7 +145,7 @@ def tien21(to_search):
     pass
     
     
-def super_search_to_json(to_search):
+def super_search(to_search):
     
     list_result = [{"date":f"{datetime.datetime.now()}"}]
 
@@ -164,13 +164,11 @@ def super_search_to_json(to_search):
     return list_result
 
 
-def sort_by_price_ascending(to_search):
-    list_result = super_search_to_json(to_search)
+def sort_by_price_ascending(list_result):
     sorted_list = pd.DataFrame(list_result[1:]).sort_values("price")
     return sorted_list
     
-def sort_by_price_descending(to_search):
-    list_result = super_search_to_json(to_search)
+def sort_by_price_descending(list_result):
     sorted_list = pd.DataFrame(list_result[1:]).sort_values("price", ascending= False)
     return sorted_list
 

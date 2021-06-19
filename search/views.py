@@ -11,7 +11,11 @@ def content(request):
 def search(request):
     if request.method == "POST":
         to_search = request.POST.get("search")
-
-        list_result = super_search_to_json(to_search)
-        context = { "resultados": list_result[1:]}
+        list_result = super_search(to_search)
+        sorted_ascending= sort_by_price_ascending(list_result[1:])
+        sorted_descending= sort_by_price_descending(list_result[1:])
+        context = { "resultados": list_result[1:], "ascending": sorted_ascending, "descending": sorted_descending}
+        
         return render(request, "search/results.html", context)
+    
+        
