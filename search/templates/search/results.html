@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DevFolio - Developer Portfolio Template</title>
+    <title>Resultados</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
@@ -12,59 +12,42 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    {% load static %}
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="{% static 'search/media/developer-portfolio-template/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'search/media/developer-portfolio-template/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'search/media/developer-portfolio-template/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    {% load static %}
+    
     <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
 
     <script src="{% static 'search/media/js/main.js' %}" defer></script>
 
 </head>
-<body>
-  <div class="navbar navbar-expand-lg bg-light navbar-light">
-    <div class="container-fluid">
-        <a href="../" class="navbar-brand">Indexed World</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto">
-                <a href="../" class="nav-item nav-link active">Home</a>
-                <a href="../content" class="nav-item nav-link">About</a>
-                
-            </div>
-        </div>
-    </div>
-</div>
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+  
   <!-- Nav Bar Start -->
   <div class="navbar navbar-expand-lg bg-light navbar-light">
       <div class="container-fluid">
-          <a href="/index" class="navbar-brand">Indexed World</a>
+          <a href="../" class="navbar-brand">Indexed World</a>
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav ml-auto">
-                  <a href="#home" class="nav-item nav-link active">Home</a>
-                  <a href="./content" class="nav-item nav-link">About</a>
+                  <a href="../" class="nav-item nav-link active">Home</a>
+                  <a href="../content" class="nav-item nav-link">About</a>
                   
               </div>
           </div>
       </div>
   </div>
   <!-- Nav Bar End -->
-
-
 
 
   <!-- About Start -->
@@ -80,7 +63,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>¡Busca tu ganga!</h1>
-                    <h2></h2>
+                    <h2>¡No dejes escapar las mejores oportunidades!</h2>
                 </div>
             </div>
         </div>
@@ -92,30 +75,7 @@
         </form>
     </div>
   </div>
-
-    <!--<table style="width:100%" class="sortable" id = "example">
-        <thead>
-            <tr>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Old Price</th>
-              <th>Percentage</th>
-              <th>Link</th>
-           </tr>
-        </thead>
-        <tbody>
-        {% for product in resultados %}
-            <tr>
-                <td>{{ product.description }}</th>
-                <td>{{ product.price }}</th>
-                <td>{{ product.old_price }}</th>
-                <td>{{ product.discount }}</lth>
-                <td><a href="{{ product.product_href }}">Enlace</a></th>
-            </tr>
-        {%endfor%}
-        </tbody>
-    </table> -->
-   
+  
 <!-- Team Start -->
 <div class="team" id="team">
   <div class="container">
@@ -126,9 +86,7 @@
       <div >
         <form action="/search/" method="POST">
         {% csrf_token %}
-        {% for product in ascending %}
         <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Ascendente</button>
-        {%endfor%}
         <button class="btn btn-outline-success" type="submit" style="margin-bottom: 20px;">Ordenar Descendente</button>
       </form>
         

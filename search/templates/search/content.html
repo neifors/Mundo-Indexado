@@ -12,20 +12,19 @@
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        {% load static %}
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="{% static 'search/media/developer-portfolio-template/lib/animate/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'search/media/developer-portfolio-template/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'search/media/developer-portfolio-template/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        {% load static %}
+        
         <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
 
         <script src="{% static 'search/media/js/main.js' %}" defer></script>
-
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
