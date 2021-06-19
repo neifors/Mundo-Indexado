@@ -146,7 +146,9 @@ def dell(to_search):
 def tien21(to_search):
     pass
     
-    
+
+
+
 def super_search(to_search):
     
     list_result = [{"date":f"{datetime.datetime.now()}"}]
