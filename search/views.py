@@ -11,8 +11,7 @@ def content(request):
 def search(request):
     if request.method == "POST":
         to_search = request.POST.get("search")
-        print("##########################################")
-        print(to_search)
+
         list_result = super_search_to_json(to_search)
         context = { "resultados": list_result[1:]}
         return render(request, "search/results.html", context)

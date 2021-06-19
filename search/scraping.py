@@ -156,6 +156,8 @@ def super_search_to_json(to_search):
     #with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
     #    json.dump( list_result, file, ensure_ascii = False)
     
-    return list_result
+    list_result.extend(data_dell.result())
+    list_result.extend(data_backm.result())
+    list_result.extend(data_mediamarkt.result())
     
-print(super_search_to_json("consola"))
+    return list_result
