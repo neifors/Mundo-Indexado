@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 
 
-
+pages_limit = 10
 
 #! RESPONSE [403] FORBIDDEN (Nos han bloqueado el acceso)
 # def pccomponentes(to_search):
@@ -55,7 +55,7 @@ def mediamarkt (to_search):
     data=[]
 
     
-    while page <= 4:
+    while page <= pages_limit:
         uri_to_search = mediamarkt+"/es/search.html?query="+to_search+"&page="+str(page)
         response = get(uri_to_search , headers=headers)
         ##? Si response 200:
@@ -90,7 +90,7 @@ def backmarket(to_search):
     backmarket = 'https://www.backmarket.es'
     page = 1
     data=[]
-    while page <= 4:
+    while page <= pages_limit:
         
         uri_to_search = backmarket+"/search?page="+str(page)+"&q="+to_search
         response = get(uri_to_search , headers=headers)
@@ -129,7 +129,7 @@ def dell(to_search):
     dell = 'https://www.dell.com'
     page = 1
     data=[]
-    while page <= 4:
+    while page <= pages_limit:
         
         uri_to_search = dell+"/es-es/search/"+to_search+"?p="+str(page)+"&t=Product"
         response = get(uri_to_search , headers=headers)
