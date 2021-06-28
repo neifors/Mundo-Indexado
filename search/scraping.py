@@ -146,7 +146,8 @@ def dell(to_search):
                     description = product.find("h3", class_="ps-title").text.strip()
                     href = product.find("h3", class_="ps-title").find("a")["href"][2:]
                     discount = (old_price-current_price)*100/old_price
-                    img = product.find("img")["src"]
+                    img = product.find("img")["data-src"]
+                    print(img)
                     data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href, 'img':img})
                 else:
                     continue
@@ -202,3 +203,5 @@ def sort_by_discount_ascending(list_result):
 
 def sort_by_discount_descending(list_result):
     return pd.DataFrame(list_result[1:]).sort_values("discount", ascending= False)
+
+
