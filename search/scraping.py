@@ -147,7 +147,6 @@ def dell(to_search):
                     href = product.find("h3", class_="ps-title").find("a")["href"][2:]
                     discount = (old_price-current_price)*100/old_price
                     img = product.find("img")["data-src"]
-                    print(img)
                     data.append({'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href, 'img':img})
                 else:
                     continue
