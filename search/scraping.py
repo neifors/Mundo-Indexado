@@ -1,15 +1,18 @@
-from django.http import HttpResponse
 from bs4 import BeautifulSoup
 from requests import get
-import datetime, json
-import urllib.request
+import datetime
 from concurrent.futures import ThreadPoolExecutor
-import pandas as pd 
+import pandas as pd
+
 
 
 
 #! RESPONSE [403] FORBIDDEN (Nos han bloqueado el acceso)
 # def pccomponentes(to_search):
+    # Funcion que devuelve el resultado de extraer de la web de PcComponentes la información referente a la búsqueda que realiza el usuario
+    # Concretamente devuelve una lista 'data' cuyos elementos son diccionarios que recoge, cada uno, la información de cada producto:
+    # {'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href}
+    
     
 #     headers = ({'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
 #     headers = ({'User-Agent':'Chrome/41.0.2228.0'})
@@ -42,7 +45,10 @@ import pandas as pd
 #     return data        
 
 def mediamarkt (to_search):
-    #class_ = ProductFlexBox__StyledListItem-nk9z2u-0 kzcilw
+    # Funcion que devuelve el resultado de extraer de la web de MediaMarkt la información referente a la búsqueda que realiza el usuario
+    # Concretamente devuelve una lista 'data' cuyos elementos son diccionarios que recoge, cada uno, la información de cada producto:
+    # {'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href}
+    
     headers = ({'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
     mediamarkt = 'https://www.mediamarkt.es'
     page = 1
@@ -76,6 +82,9 @@ def mediamarkt (to_search):
     return data
         
 def backmarket(to_search):
+    # Funcion que devuelve el resultado de extraer de la web de BackMarket la información referente a la búsqueda que realiza el usuario
+    # Concretamente devuelve una lista 'data' cuyos elementos son diccionarios que recoge, cada uno, la información de cada producto:
+    # {'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href}
     
     headers = ({'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
     backmarket = 'https://www.backmarket.es'
@@ -112,6 +121,9 @@ def backmarket(to_search):
           
           
 def dell(to_search):
+    # Funcion que devuelve el resultado de extraer de la web de Dell la información referente a la búsqueda que realiza el usuario
+    # Concretamente devuelve una lista 'data' cuyos elementos son diccionarios que recoge, cada uno, la información de cada producto:
+    # {'description':description ,'price':current_price ,'discount':f"{discount:.2f}%" ,'old_price':old_price,'product_href':href}
     
     headers = ({'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
     dell = 'https://www.dell.com'
@@ -143,13 +155,11 @@ def dell(to_search):
     return data
     
     
-def tien21(to_search):
-    pass
-    
-
-
 
 def super_search(to_search):
+    # Función que mediante Threading (Concurrencia) realiza la búsqueda que desea el usuario en las diferentes webs con las
+    # que estamos trabajando. Devuelve una lista con todos los resultados en la que el primer elemento es un diccionario con la
+    # fecha actual: {"date":f"{datetime.datetime.now()}"} y los demás son diccionarios con la información de cada producto resultado.
     
     list_result = [{"date":f"{datetime.datetime.now()}"}]
 
@@ -158,23 +168,37 @@ def super_search(to_search):
         data_mediamarkt = executor.submit(mediamarkt, to_search=to_search)
         data_backm = executor.submit(backmarket, to_search=to_search)
         
-    #with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
-    #    json.dump( list_result, file, ensure_ascii = False)
-    
     list_result.extend(data_dell.result())
     list_result.extend(data_backm.result())
     list_result.extend(data_mediamarkt.result())
     
+    #? Descomentando estas dos lineas se creará un fichero <busqueda>.json por cada búsqueda realizada por los usuarios
+    #? creando una especie de caché en la que podríamos buscar en caso de que la fecha de búsqueda (primer elemento de la lista)
+    #? coincida con la fecha actual. En caso contrario, se realizaría un nuevo scraping y se reescribiría el .json correspondiente.
+    #with open(f"./search/backup/{to_search}.json", "w", encoding= "utf8") as file:
+    #   json.dump( list_result, file, ensure_ascii = False)
+    
     return list_result
 
 
+
+#! FUNCIONES QUE NO ESTAMOS UTILIZANDO
+
+# La idea inicial era que pudiesemos tener botones para ordenar los resultados. Estas serían las funciones correspondientes 
+# para devolver las listas ordenadas por precio o descuento tanto de manera ascendente como descendiente
+#? Debido a la falta de conocimientos en HTML y/o Django, no hemos sabido implementarlo.
+
 def sort_by_price_ascending(list_result):
-    sorted_list = pd.DataFrame(list_result[1:]).sort_values("price")
-    return sorted_list
+    return pd.DataFrame(list_result[1:]).sort_values("price")
+    
     
 def sort_by_price_descending(list_result):
-    sorted_list = pd.DataFrame(list_result[1:]).sort_values("price", ascending= False)
-    return sorted_list
+    return pd.DataFrame(list_result[1:]).sort_values("price", ascending= False)
+    
+
+def sort_by_discount_ascending(list_result):
+    return pd.DataFrame(list_result[1:]).sort_values("discount")
 
 
-
+def sort_by_discount_descending(list_result):
+    return pd.DataFrame(list_result[1:]).sort_values("discount", ascending= False)

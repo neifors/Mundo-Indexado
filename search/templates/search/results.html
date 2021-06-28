@@ -19,9 +19,11 @@
     <link href="{% static 'search/media/developer-portfolio-template/lib/animate/animate.min.css' %}" rel="stylesheet">
     <link href="{% static 'search/media/developer-portfolio-template/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     <link href="{% static 'search/media/developer-portfolio-template/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
     <!-- Template Stylesheet -->
-    
+  
     <link href="{% static 'search/media/css/style.css' %}" rel="stylesheet">
 
     <script src="{% static 'search/media/js/main.js' %}" defer></script>
@@ -29,12 +31,12 @@
 
     </script>
 
-</head>
+  </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-  
-  <!-- Nav Bar Start -->
-  <div class="navbar navbar-expand-lg bg-light navbar-light">
+  <body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-light navbar-light">
       <div class="container-fluid">
           <a href="../" class="navbar-brand">Indexed World</a>
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -44,24 +46,23 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav ml-auto">
                   <a href="./index" class="nav-item nav-link active">Home</a>
-                  <a href="./content" class="nav-item nav-link">About</a>
-                  
+                  <a href="./content" class="nav-item nav-link">About</a>    
               </div>
           </div>
       </div>
-  </div>
-  <!-- Nav Bar End -->
+    </div>
+    <!-- Nav Bar End -->
 
 
-  <!-- About Start -->
-  <div class="hero" id="home">
-  
-  </div>
+    <!-- About Start -->
+    <div class="hero" id="home">
+    
+    </div>
 
-  <!-- About End -->
-  
-  <div class="container-fluid">
-    <div class="row align-items-center">
+    <!-- About End -->
+    
+    <div class="container-fluid">
+      <div class="row align-items-center">
         <div class="col-sm-12 col-md-6">
             <div class="hero-content">
                 <div class="hero-text">
@@ -76,31 +77,28 @@
           
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-    </div>
-  </div>
-
-<!-- Team Start -->
-<div class="team" id="team">
-  <div class="container">
-      <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-          
-          <h2>Productos</h2>
       </div>
-      
-        
-  </div>
+    </div>
+
+    <!-- Team Start -->
+    <div class="team" id="team">
+      <div class="container">
+        <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+          <h2>Productos</h2>
+        </div>
+      </div>
       
       
       <div class="row">
-        
+
         {% for product in page_obj %}
-        
+
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
             <a href="{{ product.product_href }}">
               <div class="team-item" >
                 {% if product.img %}
                   <div class="team-img">
-                      <img src="{{ product.img }}" alt="Image">
+                    <img src="{{ product.img }}" alt="Image">
                   </div>
                 {% else %}
                   <div class="team-img">
@@ -111,54 +109,56 @@
                       <h2>{{ product.description }}</h2>
                       <h3>{{ product.price }} €</h3>
                       <p>Antes <strike>{{ product.old_price }} €</strike> </p>
-                      <h4>Descuento {{ product.discount }}</h4>
-                      
-                              
+                      <h4>Descuento {{ product.discount }}</h4>            
                   </div>
               </div>
             </a>
           </div>
         
-          {%endfor%}
+        {%endfor%}
        
-
-        <div class="pagination">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
-
-                <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                </span>
-
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                {% endif %}
+        <!-- <nav class="pagination">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+      
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
             </span>
-        </div>
-  </div>
-</div>
-  <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/easing/easing.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/wow/wow.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/waypoints/waypoints.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/typed/typed.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/owlcarousel/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/isotope/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/lib/lightbox/js/lightbox.min.js' %}"></script>
+      
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+          </span>
+      </nav> -->
 
-  <!-- Contact Javascript File -->
-  <script src="{% static 'search/media/developer-portfolio-template/mail/jqBootstrapValidation.min.js' %}"></script>
-  <script src="{% static 'search/media/developer-portfolio-template/mail/contact.js' %}"></script>
 
-  <!-- Template Javascript -->
-  <script src="{% static 'search/media/js/main.js' %}"></script>
-</body>
+      </div>
+
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/typed/typed.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/lib/lightbox/js/lightbox.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'search/media/developer-portfolio-template/mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'search/media/developer-portfolio-template/mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'search/media/js/main.js' %}"></script>
+
+  </body>
 </html>
 
 
